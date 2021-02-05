@@ -5,11 +5,10 @@ import Meme from "./Meme/Meme"
 
 const Memes = ()=>{
     return (
-        <>
-            <h1>Memes</h1>
+        <div className={styles.memes}>
             <Meme/>
             <Meme/>
-        </>
+        </div>
     )
 }
 

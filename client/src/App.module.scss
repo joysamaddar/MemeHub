@@ -23,3 +23,27 @@
     color: white;
   }
 }
+
+main {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  .container_l {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
+  .container_r {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
+}

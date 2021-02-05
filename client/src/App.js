@@ -5,6 +5,8 @@ import Memes from "./components/Memes/Memes"
 import Form from "./components/Form/Form"
 
 const App = ()=>{
+
+    
     return (
         <div>
             <nav className={styles.nav}>
@@ -12,11 +14,11 @@ const App = ()=>{
                 <h2>MemeHub</h2>
             </nav>
             <main>
-                <div className="grid">
-                    <div className="grid-item">
+                <div className={styles.container}>
+                    <div className={styles.container_l}>
                         <Memes/>
                     </div>
-                    <div className="grid-item">
+                    <div className={styles.container_r}>
                         <Form/>
                     </div>
                 </div>
