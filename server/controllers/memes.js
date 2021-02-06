@@ -1,6 +1,5 @@
 const MemePost = require("../models/memePost")
 
-
 exports.getMemes = async (req,res, next)=>{
     try{
         const memes = await MemePost.find()
@@ -14,7 +13,6 @@ exports.getMemes = async (req,res, next)=>{
 
 exports.postMeme = async (req, res,next)=>{
     const reqBody = req.body;
-    console.log(reqBody)
     const newMeme = new MemePost(reqBody) 
     try{
         await newMeme.save()
