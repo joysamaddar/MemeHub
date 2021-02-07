@@ -1,0 +1,66 @@
+@import "../../variables.scss";
+
+.form {
+  padding: 2rem 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    color: $primary;
+  }
+
+  input {
+    width: 80%;
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    margin: 1rem 0rem;
+    outline: none;
+    border: 1px solid $primary;
+  }
+
+  .fileInput {
+    margin: 2rem auto;
+    input {
+      border: none;
+      background: $white;
+      width: 100%;
+      padding: 0rem;
+      margin: 0rem 0rem 1rem 0;
+    }
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  button {
+    padding: 1rem 1rem;
+    width: 40%;
+    margin: 0 1rem;
+  }
+
+  .buttonSubmit {
+    border: 1px solid $primary;
+    background: $primary;
+    color: white;
+  }
+
+  .buttonSubmit:hover {
+    background: $primaryHover;
+  }
+
+  .buttonClear {
+    border: 1px solid $danger;
+    background: $danger;
+    color: white;
+  }
+
+  .buttonClear:hover {
+    background: $dangerHover;
+  }
+}

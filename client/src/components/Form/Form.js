@@ -23,25 +23,27 @@ const Form = ()=>{
     return (
         <div className={styles.form}>
             <form autoComplete="off" noValidate onSubmit={submitHandler}>
-                <h3>Share a meme :D</h3>
+                <h3>SHARE A MEME</h3>
                 <label htmlFor="creator">
-                    <input type="text" id="creator" name="creator" value={memeData.creator} onChange={(e)=>setMemeData({...memeData, creator: e.target.value})}/>
+                    <input placeholder="Username" type="text" id="creator" name="creator" value={memeData.creator} onChange={(e)=>setMemeData({...memeData, creator: e.target.value})}/>
                 </label>
                 <label htmlFor="title">
-                    <input type="text" id="title" name="title" value={memeData.title} onChange={(e)=>setMemeData({...memeData, title: e.target.value})}/>
+                    <input placeholder="Title" type="text" id="title" name="title" value={memeData.title} onChange={(e)=>setMemeData({...memeData, title: e.target.value})}/>
                 </label>
                 <label htmlFor="content">
-                    <input type="text" id="content" name="content" value={memeData.content} onChange={(e)=>setMemeData({...memeData, content: e.target.value})}/>
+                    <input placeholder="Content" type="text" id="content" name="content" value={memeData.content} onChange={(e)=>setMemeData({...memeData, content: e.target.value})}/>
                 </label>
                 <div className={styles.fileInput}>
-                        <FileBase 
+                        <FileBase classname={styles.FileBase}
                             type="file"
                             multiple={false}
                             onDone={({base64})=> setMemeData({...memeData, selectedFile: base64})}
                         />
                 </div>
-                <button className={styles.buttonSubmit} type="submit">SUBMIT</button>
-                <button className={styles.buttonClear} onClick={clear}>CLEAR</button>
+                <div className="buttons">
+                    <button className={styles.buttonSubmit} type="submit">SUBMIT</button>
+                    <button className={styles.buttonClear} onClick={clear}>CLEAR</button>
+                </div>
             </form>        
         </div>
     )
