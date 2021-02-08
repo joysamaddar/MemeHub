@@ -1,21 +1,24 @@
-import React, { useEffect } from "react";
+import React, {  } from "react";
 import styles from "./Memes.module.scss";
 import Meme from "./Meme/Meme"
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 
 
-const Memes = ()=>{
-    const memes = useSelector(state=> state.memes);
+const Memes = () => {
+    const memes = useSelector(state => state.memes);
 
-    useEffect(()=>{
-        console.log(memes)
-    },[memes])
+    console.log(memes)
 
     return (
-        <div className={styles.memes}>
-            <Meme/>
-            <Meme/>
-        </div>
+        !memes.length?"loading":(
+            <div className={styles.container}>
+                {memes.map(meme=>(
+                    <div key={meme._id}>
+                        <Meme meme={meme}/>
+                    </div>
+                ))}
+            </div>
+        )
     )
 }
 
