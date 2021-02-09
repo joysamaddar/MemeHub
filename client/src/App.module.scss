@@ -25,8 +25,9 @@
 }
 
 main {
-  width: 100%;
-  padding-top: 2rem;
+  width: 90%;
+  padding: 4rem 0;
+  margin: auto;
 }
 
 .container {
@@ -46,4 +47,16 @@ main {
     padding: 1rem;
     margin: 0 0.5rem;
   }
+}
+
+footer {
+  background: $primary;
+  width: 100%;
+  padding: 1.1rem;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

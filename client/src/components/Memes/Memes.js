@@ -7,13 +7,11 @@ import { useSelector } from "react-redux"
 const Memes = () => {
     const memes = useSelector(state => state.memes);
 
-    console.log(memes)
-
     return (
-        !memes.length?"loading":(
+        !memes.length?(<div className={styles.loading}>loading...</div>):(
             <div className={styles.container}>
                 {memes.map(meme=>(
-                    <div key={meme._id}>
+                    <div className={styles.memeContainer} key={meme._id}>
                         <Meme meme={meme}/>
                     </div>
                 ))}

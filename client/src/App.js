@@ -29,6 +29,9 @@ const App = ()=>{
                     </div>
                 </div>
             </main>
+            <footer>
+                <p>Made with ❤️ by Joy</p>
+            </footer>
         </div>
     )
 }

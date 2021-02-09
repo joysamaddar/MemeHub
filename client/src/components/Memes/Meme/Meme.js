@@ -1,24 +1,28 @@
 import React from "react";
 import styles from "./Meme.module.scss";
 import moment from "moment"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faClock, faTrash, faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 
 const Meme = ({meme})=>{
 
     return (
         <div className={styles.meme}>
                 <img src={meme.selectedFile} alt={meme.title}/>
-                <div>
-                    <p>{meme.creator}</p>
-                    <p>{moment(meme.createdAt).fromNow()}</p>
+                <div className={styles.info}>
+                    <p><FontAwesomeIcon icon={faUser} className={styles.icons} />{meme.creator}</p>
+                    <p><FontAwesomeIcon icon={faClock} className={styles.icons} />{moment(meme.createdAt).fromNow()}</p>
                 </div>
-                <div>
-                    <button onClick={()=>{}}>button</button>
+                <div className={styles.editButtonContainer}>
+                    <button onClick={()=>{}}>...</button>
                 </div>
-                <div>{meme.title}</div>
-                <div>{meme.content}</div>
-                <div>
-                    <button onClick={()=>{}}>Laugh {meme.laughCount}</button>
-                    <button onClick={()=>{}}>Delete</button>
+                <p className={styles.title}>{meme.title}</p>
+                <p className={styles.content}>{meme.content}</p>
+                <div className={styles.reactionContainer}>
+                    <button className={styles.laughButton} onClick={()=>{}}><FontAwesomeIcon icon={faLaughSquint} className={styles.reactionIcon} />
+                    {meme.laughCount} {meme.laughCount>1?'Laughs':'Laugh'}
+                    </button>
+                    <button className={styles.deleteButton} onClick={()=>{}}><FontAwesomeIcon icon={faTrash} className={styles.reactionIcon} />Delete</button>
                 </div>
         </div>
     )
