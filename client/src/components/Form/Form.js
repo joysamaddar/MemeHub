@@ -1,29 +1,45 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./Form.module.scss"
 import FileBase from "react-file-base64"
-import {useDispatch} from "react-redux"
-import {createMeme} from "../../store/actions/memes"
+import {useDispatch, useSelector} from "react-redux"
+import {createMeme, updateMeme} from "../../store/actions/memes"
 
-const Form = ()=>{
+const Form = ({currentId, setCurrentId})=>{
+
+    const meme = useSelector((state)=> currentId?state.memes.find(m=>m._id===currentId):null);
     const [memeData, setMemeData] = useState({
         creator: "", title: "", content: "", selectedFile: ""
     })
+
+    useEffect(()=>{
+        if(meme){
+            setMemeData(meme);
+        }
+    }, [meme])
 
     const dispatch = useDispatch()
     
     const submitHandler = (e)=>{
         e.preventDefault();
-        dispatch(createMeme(memeData))
+        if(currentId){
+            dispatch(updateMeme(currentId, memeData))
+        }else{
+            dispatch(createMeme(memeData))
+        }
+        clear()
     }
 
     const clear = ()=>{
-    
+        setCurrentId(null);
+        setMemeData({
+            creator: "", title: "", content: "", selectedFile: ""
+        })
     }
 
     return (
         <div className={styles.form}>
             <form autoComplete="off" noValidate onSubmit={submitHandler}>
-                <h3>SHARE A MEME</h3>
+                <h3>{currentId?"EDITING":"SHARE"} A MEME</h3>
                 <label htmlFor="creator">
                     <input placeholder="Username" type="text" id="creator" name="creator" value={memeData.creator} onChange={(e)=>setMemeData({...memeData, creator: e.target.value})}/>
                 </label>

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useState, useEffect} from "react"
 import styles from "./App.module.scss"
 import logo from "./assets/images/logo.jpg"
 import Memes from "./components/Memes/Memes"
@@ -8,10 +8,11 @@ import {initMemes} from "./store/actions/memes"
 
 const App = ()=>{
     const dispatch = useDispatch()
+    const [currentId, setCurrentId] = useState(null);
 
     useEffect(()=>{
         dispatch(initMemes())
-    }, [dispatch])
+    }, [currentId, dispatch])
 
     return (
         <div>
@@ -22,10 +23,10 @@ const App = ()=>{
             <main>
                 <div className={styles.container}>
                     <div className={styles.container_l}>
-                        <Memes/>
+                        <Memes setCurrentId={setCurrentId}/>
                     </div>
                     <div className={styles.container_r}>
-                        <Form/>
+                        <Form currentId={currentId} setCurrentId={setCurrentId}/>
                     </div>
                 </div>
             </main>

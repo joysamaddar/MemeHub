@@ -8,6 +8,8 @@ const reducer = (state = initialState,action)=>{
             return action.payload;
         case actions.CREATE:
             return [...state, action.payload];
+        case actions.UPDATE:
+            return state.map((item)=> item._id === action.payload._id ? action.payload : item);
         default:
             return state;
     }

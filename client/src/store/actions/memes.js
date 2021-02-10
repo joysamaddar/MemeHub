@@ -13,7 +13,7 @@ export const initMemes = () => async (dispatch)=>{
         const { data } = await api.fetchMemes();
         dispatch(getMemes(data))
     }catch(error){
-        console.log(error.message)
+        console.log(error)
     }
 }
 
@@ -27,6 +27,18 @@ export const createMeme = (meme) => async (dispatch)=>{
         })
 
     }catch(error){
-        console.log(error.message)
+        console.log(error)
+    }
+}
+
+export const updateMeme = (id, meme) => async(dispatch)=>{
+    try{
+        const {data} = await api.updateMeme(id, meme);
+        dispatch({
+            type: actions.UPDATE,
+            payload: data
+        })
+    }catch(error){
+        console.log(error)
     }
 }

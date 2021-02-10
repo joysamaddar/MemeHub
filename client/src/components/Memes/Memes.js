@@ -4,7 +4,7 @@ import Meme from "./Meme/Meme"
 import { useSelector } from "react-redux"
 
 
-const Memes = () => {
+const Memes = ({setCurrentId}) => {
     const memes = useSelector(state => state.memes);
 
     return (
@@ -12,7 +12,7 @@ const Memes = () => {
             <div className={styles.container}>
                 {memes.map(meme=>(
                     <div className={styles.memeContainer} key={meme._id}>
-                        <Meme meme={meme}/>
+                        <Meme meme={meme} setCurrentId={setCurrentId}/>
                     </div>
                 ))}
             </div>

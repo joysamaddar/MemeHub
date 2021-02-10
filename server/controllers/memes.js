@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const MemePost = require("../models/memePost")
 
 exports.getMemes = async (req,res, next)=>{
@@ -22,4 +23,12 @@ exports.postMeme = async (req, res,next)=>{
             message: error.message
         })
     }
+}
+
+exports.updateMeme = async (req,res,next)=>{
+    const {id} = req.params;
+    const meme = req.body;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No meme with that id!")
+    const updatedMeme = await MemePost.findByIdAndUpdate(id, {...meme, _id: id}, {new: true});
+    return res.status(200).json(updatedMeme);
 }

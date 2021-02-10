@@ -4,7 +4,7 @@ import moment from "moment"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faClock, faTrash, faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 
-const Meme = ({meme})=>{
+const Meme = ({meme, setCurrentId})=>{
 
     return (
         <div className={styles.meme}>
@@ -14,7 +14,7 @@ const Meme = ({meme})=>{
                     <p><FontAwesomeIcon icon={faClock} className={styles.icons} />{moment(meme.createdAt).fromNow()}</p>
                 </div>
                 <div className={styles.editButtonContainer}>
-                    <button onClick={()=>{}}>...</button>
+                    <button onClick={()=>setCurrentId(meme._id)}>...</button>
                 </div>
                 <p className={styles.title}>{meme.title}</p>
                 <p className={styles.content}>{meme.content}</p>
