@@ -9,6 +9,7 @@ const reducer = (state = initialState,action)=>{
         case actions.CREATE:
             return [...state, action.payload];
         case actions.UPDATE:
+        case actions.LAUGH:
             return state.map((item)=> item._id === action.payload._id ? action.payload : item);
         case actions.DELETE:
             return state.filter(item=>{

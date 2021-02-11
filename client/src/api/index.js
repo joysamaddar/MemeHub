@@ -9,3 +9,5 @@ export const createMeme = (newMeme)=>axios.post(url, newMeme);
 export const updateMeme = (id, updatedMeme)=>axios.patch(`${url}/${id}`, updatedMeme);
 
 export const deleteMeme = (id)=>axios.delete(`${url}/${id}`);
+
+export const laugh = (id)=>axios.patch(`${url}/${id}/laugh`);

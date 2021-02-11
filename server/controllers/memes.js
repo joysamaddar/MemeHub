@@ -36,6 +36,16 @@ exports.updateMeme = async (req,res,next)=>{
 exports.deleteMeme = async(req,res,next)=>{
     const {id} = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No meme with this id!")
-    const result = await MemePost.findByIdAndDelete(id)
-    return res.status(200).json(result);
+    await MemePost.findByIdAndDelete(id)
+    return res.status(200).json("Deleted the post!");
+}
+
+exports.laugh = async(req,res,next)=>{
+    const {id} = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No meme with this id!")
+    const meme = await MemePost.findById(id);
+    const updatedMeme = await MemePost.findByIdAndUpdate(id, {
+        laughCount: meme.laughCount+1
+    }, {new: true});
+    return res.status(200).json(updatedMeme);
 }

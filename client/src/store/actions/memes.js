@@ -43,15 +43,26 @@ export const updateMeme = (id, meme) => async(dispatch)=>{
     }
 }
 
-export const deleteMeme = (id, meme) => async(dispatch)=>{
+export const deleteMeme = (id) => async(dispatch)=>{
     try{
-        const data = await api.deleteMeme(id);
-        console.log(data);
+        await api.deleteMeme(id);
         dispatch({
             type: actions.DELETE,
             payload: {
                 _id: id
             }
+        })
+    }catch(error){
+        console.log(error)
+    }
+}
+
+export const laugh = (id) => async(dispatch)=>{
+    try{
+        const {data} = await api.laugh(id);
+        dispatch({
+            type: actions.LAUGH,
+            payload: data
         })
     }catch(error){
         console.log(error)
