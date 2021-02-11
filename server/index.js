@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use("/memes", memeRoutes)
 
-const CONNECTION_URL = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@memehubcluster.maibg.mongodb.net/memes?retryWrites=true&w=majority`;
+const CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
 
 const PORT = process.env.PORT || 5000;
 
