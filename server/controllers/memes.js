@@ -32,3 +32,10 @@ exports.updateMeme = async (req,res,next)=>{
     const updatedMeme = await MemePost.findByIdAndUpdate(id, {...meme, _id: id}, {new: true});
     return res.status(200).json(updatedMeme);
 }
+
+exports.deleteMeme = async(req,res,next)=>{
+    const {id} = req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No meme with this id!")
+    const result = await MemePost.findByIdAndDelete(id)
+    return res.status(200).json(result);
+}

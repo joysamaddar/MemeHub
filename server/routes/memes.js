@@ -6,5 +6,6 @@ const router = express.Router();
 router.get("/", memeController.getMemes);
 router.post("/", memeController.postMeme);
 router.patch("/:id", memeController.updateMeme);
+router.delete("/:id", memeController.deleteMeme);
 
 module.exports =  router;

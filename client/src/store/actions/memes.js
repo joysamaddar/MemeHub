@@ -42,3 +42,18 @@ export const updateMeme = (id, meme) => async(dispatch)=>{
         console.log(error)
     }
 }
+
+export const deleteMeme = (id, meme) => async(dispatch)=>{
+    try{
+        const data = await api.deleteMeme(id);
+        console.log(data);
+        dispatch({
+            type: actions.DELETE,
+            payload: {
+                _id: id
+            }
+        })
+    }catch(error){
+        console.log(error)
+    }
+}
