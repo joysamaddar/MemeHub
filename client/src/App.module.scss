@@ -26,6 +26,7 @@
 
 main {
   width: 90%;
+  min-height: 84vh;
   padding: 4rem 0;
   margin: auto;
 }
@@ -52,6 +53,7 @@ main {
 footer {
   background: $primary;
   width: 100%;
+  height: 8vh;
   padding: 1.1rem;
   text-align: center;
   color: white;
@@ -59,4 +61,34 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: 100%;
+    .container_l {
+      grid-row: 2;
+    }
+    .container_r {
+      grid-row: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  main {
+    width: 95%;
+  }
+
+  .container {
+    padding: 1rem 0rem;
+    .container_l {
+      padding: 0rem;
+      margin: 0 0rem;
+    }
+    .container_r {
+      padding: 0rem;
+      margin: 0 0rem;
+    }
+  }
 }
